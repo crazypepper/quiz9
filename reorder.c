@@ -14,6 +14,16 @@
 #include "reorder.h"
 
 void reorder(Node **const pt_to_pt_to_node) {
-    /* REPLACE WITH COMMENT WITH YOUR CODE */
+    reverse_list(pt_to_pt_to_node);
+    Node *pt_to_node=*pt_to_pt_to_node;
+    pt_to_node=pt_to_node->pt_to_next_node;
+    Node *pt_to_previous=*pt_to_pt_to_node;
+    while(list_length(pt_to_node)>1){
+        reverse_list(&pt_to_node);
+        pt_to_previous->pt_to_next_node=pt_to_node;
+        pt_to_previous=pt_to_node;
+        pt_to_node=pt_to_node->pt_to_next_node;
+    }
+    
 }
 
